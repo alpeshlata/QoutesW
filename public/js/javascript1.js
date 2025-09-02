@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const loadMoreBtn = document.getElementById("loadMoreBtn");
 
   let quotesData = [];
-  const itemsPerLoad = 4;  // how many quotes per batch
+  const itemsPerLoad = 6;  // how many quotes per batch
   let currentIndex = 0;
   let activeCategory = null; // show all initially
 
