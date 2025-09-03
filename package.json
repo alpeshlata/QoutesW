@@ -1,6 +1,13 @@
 {
+  "name": "qoutesw",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./css/output.css --minify",
+    "dev": "tailwindcss -i ./src/input.css -o ./css/output.css --watch"
+  },
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.12",
-    "tailwindcss": "^4.1.12"
+    "tailwindcss": "^4.1.12",
+    "@tailwindcss/cli": "^4.1.12"
   }
 }
