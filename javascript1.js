@@ -122,7 +122,6 @@ const quotesGrid = document.getElementById("quotesGrid");
   let currentIndex = 0;
   let activeCategory = null; // show all initially
 
-
 async function fetchQuotes() {
     if (!quotesGrid) {
     console.warn("No quotesGrid element on this page.");
