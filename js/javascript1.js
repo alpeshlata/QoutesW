@@ -112,31 +112,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // JavaScript (Lazy Load + Category Filter)
- const quotesGrid = document.getElementById("quotesGrid");
+//  const quotesGrid = document.getElementById("quotesGrid");
   const loadMoreBtn = document.getElementById("loadMoreBtn");
+const quotesGrid = document.getElementById("quotesGrid");
+
 
   let quotesData = [];
   const itemsPerLoad = 6;  // how many quotes per batch
   let currentIndex = 0;
   let activeCategory = null; // show all initially
 
-  // Fetch quotes from JSON
-  // async function fetchQuotes() {
-  //   try {
-  //     const res = await fetch("quotes.json");
-  //     quotesData = await res.json();
-  //     // initial render
-  //     renderQuotes();
-  //   } catch (err) {
-  //     console.error("Error fetching quotes:", err);
-  //   }
-  // }
-  // Fetch quotes from Firestore
-// Fetch quotes from Firestore
 
 async function fetchQuotes() {
+    if (!quotesGrid) {
+    console.warn("No quotesGrid element on this page.");
+    return;
+  }
   try {
     const querySnapshot = await getDocs(collection(window.db, "quotes"));
+    
     quotesData = querySnapshot.docs.map(doc => ({
       id: doc.id,
       ...doc.data()
@@ -332,9 +326,14 @@ quotesGrid.addEventListener("click", async (e) => {
 
 
   // Load More Button Click
+  // loadMoreBtn.addEventListener("click", () => {
+  //   renderQuotes();
+  // });
+if (loadMoreBtn) {
   loadMoreBtn.addEventListener("click", () => {
     renderQuotes();
   });
+}
 
   // Filter by category (when clicking tags)
   function filterByCategory(category) {
